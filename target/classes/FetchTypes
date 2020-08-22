@@ -1,0 +1,17 @@
+The relationships are defined through joins in database.
+Hibernate represents joins in the form of associations like One-to-One, One-to-Many and Many-to-One.
+It is required to define Fetch Type when you use any of these associations.
+Fetch Type decides on whether or not to load all the data belongs to associations
+as soon as you fetch data from parent table. Fetch type supports two types of loading:
+Lazy and Eager. By default, Fetch type would be Lazy.
+
+FetchType.LAZY: It fetches the child entities lazily, that is, at the time of fetching parent
+entity it just fetches proxy (created by cglib or any other utility) of the child entities 
+and when you access any property of child entity then it is actually fetched by hibernate.
+
+FetchType.EAGER: it fetches the child entities along with parent.
+
+Lazy initialization improves performance by avoiding unnecessary computation 
+and reduce memory requirements.
+
+Eager initialization takes more memory consumption and processing speed is slow.

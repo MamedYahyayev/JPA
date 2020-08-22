@@ -1,0 +1,26 @@
+Annotations:
+	-	@Entity
+	-	@Id
+	-	@GeneratedValue (valueType IDENTITY , TABLE , SEQUENCE , AUTO)
+	-	@Column
+	-	@NotNull
+	-	@MappedSuperClass
+	-	@Embedded
+	- 	@Embeddable
+	- 	@AttributeOverrides
+	- 	@AttributeOverride
+	- 	@OneToMany
+	-	@ManyToOne
+	- 	@OneToOne
+	-	@ManyToMany
+	-	@JoinColumn
+	- 	@JoinTable
+	-	@Transient
+	-	@Temporal
+	-	@Table
+	-   @ElementCollection
+	-	@GenericGenerator
+	-	@CollectionId
+	- 	cascadeTypes
+	-   mappedBy
+	- 	CRUD operations : Create , Update , Save , Delete
