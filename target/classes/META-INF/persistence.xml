@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1"
-	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	
-	
-	<persistence-unit name="unit" transaction-type="RESOURCE_LOCAL">
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-		<class>az.maqa.model.Address</class>
-		<class>az.maqa.model.Employee</class>
-		<class>az.maqa.model.oneToMany.Customer</class>
-		<class>az.maqa.model.oneToMany.Product</class>
-		<class>az.maqa.model.manyToMany.Book</class>
-		<class>az.maqa.model.manyToMany.Author</class>
-		<class>az.maqa.mappedsuperclass.model.Student</class>
-		<class>az.maqa.mappedsuperclass.model.Course</class>
-		<class>az.maqa.embedded.model.User</class>
-		<class>az.maqa.collections.model.Teacher</class>
-		<class>az.maqa.fetchtype.model.Doctor</class>
-		<class>az.maqa.fetchtype.model.Laptop</class>
-		<class>az.maqa.jpql.model.Nurse</class>
-		<class>az.maqa.criteriaapi.model.Market</class>
 
-		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa" />
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="12345" />
+    <persistence-unit name="unit" transaction-type="RESOURCE_LOCAL">
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            
-			<property name="hibernate.format_sql" value="true" />
+        <class>az.maqa.model.Address</class>
+        <class>az.maqa.model.Employee</class>
+        <class>az.maqa.model.oneToMany.Customer</class>
+        <class>az.maqa.model.oneToMany.Product</class>
+        <class>az.maqa.model.manyToMany.Book</class>
+        <class>az.maqa.model.manyToMany.Author</class>
+        <class>az.maqa.mappedsuperclass.model.Student</class>
+        <class>az.maqa.mappedsuperclass.model.Course</class>
+        <class>az.maqa.embedded.model.User</class>
+        <class>az.maqa.collections.model.Teacher</class>
+        <class>az.maqa.fetchtype.model.Doctor</class>
+        <class>az.maqa.fetchtype.model.Laptop</class>
+        <class>az.maqa.jpql.model.Nurse</class>
+        <class>az.maqa.criteriaapi.model.Market</class>
+        <class>az.maqa.inheritance.defaultinheritance.Person</class>
+        <class>az.maqa.inheritance.defaultinheritance.StudentInheritance</class>
+        <class>az.maqa.inheritance.defaultinheritance.EmployeeInheritance</class>
+        <class>az.maqa.inheritance.defaultinheritance.annotation.PersonAnnotation</class>
+        <class>az.maqa.inheritance.defaultinheritance.annotation.StudentAnnotation</class>
+        <class>az.maqa.inheritance.defaultinheritance.annotation.EmployeeAnnotation</class>
 
-		</properties>
-	</persistence-unit>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="12345"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <property name="hibernate.format_sql" value="true"/>
+
+        </properties>
+    </persistence-unit>
 
 </persistence>

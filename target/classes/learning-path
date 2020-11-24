@@ -24,3 +24,65 @@ Annotations:
 	- 	cascadeTypes
 	-   mappedBy
 	- 	CRUD operations : Create , Update , Save , Delete
+	-   @DiscriminatorValue
+	-   @Inheritance
+	-   @DiscriminatorColumn
+
+	- Inheritance Mapping
+
+    1) Table Per Hierarchy
+	Let's say we have a Persons: Employee and Student and each these classes have own specific property , but i don't wanna create
+	a table for each classes. I want to create table like this I create a new Class and this class holds same properties for Employee
+	and Student for doing this, i create Person class and let's assume we have id , name , surname properties which are the same
+	in the Student and Employee. I create Person class and add these above properties after that create Employee class
+	add salary property and then create Student class, add course property that it. And  also  these classes have to extend Person class.
+	All these stuff Hibernate ( Jpa ) create a table which name is Person.
+	In this table we have these columns : id , name , surname ,salary , course furthermore we have DType column what is this.
+	This column shows the Person, that means this person is either an employee, or a student, or a person. And this is table.
+
+	DType       Id  Name    Surname     Salary  Course
+	person	    1	Samir	Samirov
+    employee	2	Kazim	Kazimov	    1200
+    student	    3	Famil	Familov		           2
+
+    Also we have an additional annotation: @DiscriminatorValue what is this how we can use it. okay this annotations define the DType
+    value that means if we don't define this annotation DType take the class names by default. If we don't want this
+    we add @DiscriminatorValue and give the name whatever you want to see on the table.
+
+    2) Table Per Hierarchy using Annotation
+    We can use annotation to configure Table per Hierarchy. @Inheritance annotation allow us to create this inheritance type.
+    For creating this type of inheritance add this annotation to Parent class or Base class. This is Person in our example.
+    @Inheritance(strategy = InheritanceType.SINGLE_TABLE) add this annotation , in addition we have to define DType column name with
+    @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING) also we can replace the string type with Integer
+    or Char type if we want.
+
+    3) Table per Concrete
+    Hibernate generate table for each classes in this type of inheritance. So we have Person , Employee , Student table and this tables
+    have same properties. We use 2 annotation for creating this type of inheritance. First of them is @Inheritance and the other one
+    is @AttributeOverrides. Let's create this inheritance. First of all add @Inheritance annotation to Parent which is parent class in Java.
+    and add this @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) This annotation allows us to create a table
+    for each class that inherits this class. Not finished , in addition we have to add another annotation, this is @AttributeOverrides.
+    This class define properties which is in the Person class. And override that properties. Like this:
+    @AttributeOverrides({
+            @AttributeOverride(name = "id", column = @Column(name = "id")),
+            @AttributeOverride(name = "name", column = @Column(name = "name")),
+            @AttributeOverride(name = "surname", column = @Column(name = "surname"))
+    })
+    You see this annotation create table with these properties: id , name ,surname and properties which is own.
+
+    Result:
+    **************************************************
+    Person class:
+    Id      Name        Surname
+    1       Kazim       Kazimov
+
+    Employee class:
+    Id      Name        Surname     Salary
+    1       Camal       Camalov     1200
+
+    Student class:
+    Id      Name        Surname     Course
+    1       Sabir       Sabirov     2
+    **************************************************
+
+
