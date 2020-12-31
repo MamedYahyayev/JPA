@@ -85,4 +85,43 @@ Annotations:
     1       Sabir       Sabirov     2
     **************************************************
 
+    4) Table Per Subclass
+     I give you brief example. Add @Inheritance(strategy = InheritanceType.JOINED) and next add @PrimaryKeyJoinColumn(name = "person_id")
+     to the class that inherits Person class. Result is this:
 
+     Result:
+     **************************************************
+     Person class:
+     Id      Name        Surname
+     1       Kazim       Kazimov
+     2       Camal       Camalov
+     3       Sabir       Sabirov
+
+     Employee class:
+     Salary     Person_Id
+     1200       2
+
+     Student class:
+     Course     Person_Id
+     2          3
+     **************************************************
+
+    -   @MapKeyColumn
+     Okay let's suppose we want to create Employee table and this employee has own map collection for example employee_items map.
+     If we want to create a new table contains of employee_items we need to add @ElementCollection to Map property. After that we can
+     give the any name we want , in this case i want to give employee_items name to newly created table , Okay now this table contains
+     3 column the first one is foreign key this column take reference from employee id inside of employee table , if we don't give the name this fk
+     and this id takes reference table name by default. If we want to give the name we add following annotation
+     @CollectionTable(name = "employee_items", joinColumns = @JoinColumn(name = "emp_id" , referencedColumnName = "id"))
+     This annotation define table name and foreign key name and its reference. Now the turn is items.
+      Now i want to call key and value columns with different name. We can gave Key name with @MapKeyColumn annotation as shown below.
+     @MapKeyColumn(name = "items_name").
+     If i want to give the name to value of Map we can use @Column(name = "quantity") annotation.
+
+
+     -  @SequenceGenerator
+     Use cases:
+        @Id
+        @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "jpa_sequence")
+        @SequenceGenerator(name = "jpa_sequence", initialValue = 5)
+        private Long id;
