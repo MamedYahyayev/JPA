@@ -132,3 +132,31 @@ Annotations:
      after that add @EntityListener(AuditClass.class) annotation to the class which we write the logs before audit operations
      in our case we create FamilyMembers entity class and add @EntityListener(AuditingEntity.class) annotation , after that we create
      new class what this class write logs to the file (log.txt)  like this format OPERATION -- TIME , that's all.
+
+     Auditing in Hibernate with Envers
+     Add hibernate envers dependency to pom file to configure audit in hibernate , after that just add @Audited annotation
+     to above of the class which you want to audit. And hibernate generate table what name is entity_name + '_AUX'.
+     and in this table you have 2 default column. One of them is rev and the other is rev_type.
+     What are those?. The first one if foreign key of revinfo table and also this table was generated default by hibernate.
+     And this table holds 2 column id and timestamp. What is rev_type
+     if we do persist operation on the table this type will be 0, for update will be 1 and for remove will be 2
+
+     AuditReader
+     This interface helps us to read audit from table for Class. For Example in our case we have Tax table and it's
+     tax_aud table if we want to read data from this table we can use AuditReader interface. Let's create simple example to demonstrate
+
+     AuditReader reader = AuditReaderFactory.get(entityManager); // this method takes object of EntityManager
+     AuditQuery query = reader.createQuery().forEntitiesAtRevision(Tax.class, 1); // what is revision revision is these (persist - 0, update - 1, remove - 2)
+     // the above line takes rows for revision number and create query , also we can write complex query such as retrieve the audit log
+     // which the column name is '..'
+     // and to see the result , we call getResultList() method
+     System.out.println(query.getResultList());
+
+     Another example
+     List personsAtAddress = getAuditReader().createQuery()
+         .forEntitiesAtRevision(Person.class, 12)
+         .addOrder(AuditEntity.property("surname").desc())
+         .add(AuditEntity.relatedId("address").eq(addressId))
+         .setFirstResult(4)
+         .setMaxResults(2)
+         .getResultList();
