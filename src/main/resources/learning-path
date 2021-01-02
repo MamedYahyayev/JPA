@@ -125,3 +125,10 @@ Annotations:
         @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "jpa_sequence")
         @SequenceGenerator(name = "jpa_sequence", initialValue = 5)
         private Long id;
+
+
+     Auditing in JPA
+     First of all we have to  create Audit class and implement 3 methods ( PrePersist , PreUpdate , PreRemove ) in this class,
+     after that add @EntityListener(AuditClass.class) annotation to the class which we write the logs before audit operations
+     in our case we create FamilyMembers entity class and add @EntityListener(AuditingEntity.class) annotation , after that we create
+     new class what this class write logs to the file (log.txt)  like this format OPERATION -- TIME , that's all.
