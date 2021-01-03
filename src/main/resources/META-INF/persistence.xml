@@ -28,6 +28,7 @@
         <class>az.maqa.inheritance.defaultinheritance.annotation.StudentAnnotation</class>
         <class>az.maqa.inheritance.defaultinheritance.annotation.EmployeeAnnotation</class>
         <class>az.maqa.auditing.model.FamilyMembers</class>
+        <class>az.maqa.flush.model.Debt</class>
 
 
         <properties>

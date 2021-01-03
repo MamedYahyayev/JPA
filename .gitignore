@@ -1,5 +1,6 @@
 .idea
 .classpath
-.gitignore
 .settings
 target
+.project
+hibernate-app.iml

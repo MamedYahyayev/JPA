@@ -160,3 +160,10 @@ Annotations:
          .setFirstResult(4)
          .setMaxResults(2)
          .getResultList();
+
+
+     flush vs commit
+     em.flush() - It saves the entity immediately to the database with in a transaction to be used further and it can be rolled back.
+
+     em.getTransaction().commit - It marks the end of transaction and saves all the chnages with in the transaction into
+     the database and it can't be rolled back.
