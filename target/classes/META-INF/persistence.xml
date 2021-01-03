@@ -27,18 +27,18 @@
         <class>az.maqa.inheritance.defaultinheritance.annotation.PersonAnnotation</class>
         <class>az.maqa.inheritance.defaultinheritance.annotation.StudentAnnotation</class>
         <class>az.maqa.inheritance.defaultinheritance.annotation.EmployeeAnnotation</class>
+        <class>az.maqa.auditing.model.FamilyMembers</class>
+        <class>az.maqa.flush.model.Debt</class>
 
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="12345"/>
-
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-
             <property name="hibernate.format_sql" value="true"/>
 
         </properties>

@@ -1,6 +1,6 @@
-.idea
+.idea/**
 .classpath
-.settings
-target
+.settings/**
+target/**
 .project
 hibernate-app.iml
