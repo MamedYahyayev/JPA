@@ -27,6 +27,8 @@ Annotations:
 	-   @DiscriminatorValue
 	-   @Inheritance
 	-   @DiscriminatorColumn
+	-   @Fetch
+	-   @BatchSize
 
 	- Inheritance Mapping
 
@@ -167,3 +169,25 @@ Annotations:
 
      em.getTransaction().commit - It marks the end of transaction and saves all the chnages with in the transaction into
      the database and it can't be rolled back.
+
+
+     @Fetch mode
+     There are 3 FetchMode Hibernate (SELECT, CONNECT, SUBSELECT). The default is JOIN.
+     Imagine that we have two tables and there are relationships between them.
+     For example, OneToMany. If we want to take all the related data between 2 tables,
+     Hibernate will bring the data for us using the standard one. In this situation Hibernate creates only one query to retrieve data,
+     these are Sql Joins. SelectMode and SubSelect mode take data by generating 2 queries.
+
+     Reference: https://www.baeldung.com/hibernate-fetchmode
+
+     @BatchSize
+     Using batch fetching, Hibernate can load several uninitialized proxies if one proxy is accessed.
+     Batch fetching is an optimization of the lazy select fetching strategy.
+     There are two ways you can configure batch fetching: on the class level and the collection level.
+
+     Batch fetching for classes/entities is easier to understand. Consider the following example:
+     at runtime you have 25 Cat instances loaded in a Session,
+     and each Cat has a reference to its owner, a Person. The Person class is mapped with a proxy, lazy="true".
+     If you now iterate through all cats and call getOwner() on each,
+     Hibernate will, by default, execute 25 SELECT statements to retrieve the proxied owners.
+     You can tune this behavior by specifying a batch-size in the mapping of Person:
