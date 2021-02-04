@@ -101,7 +101,12 @@
 			<artifactId>mockito-core</artifactId>
 			<version>2.21.0</version>
 		</dependency>
-
+		<!--json-path-->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-path</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 	</dependencies>
 
 </project>
