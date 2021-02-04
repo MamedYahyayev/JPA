@@ -3,6 +3,7 @@ package az.maqa.jackson.annotations.model;
 import com.fasterxml.jackson.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 @JsonIgnoreProperties({"name", "surname"})
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -22,10 +23,15 @@ public class JacksonPerson {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
 
+    private List<String> items;
 
     public JacksonPerson() {
     }
 
+    public JacksonPerson(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
 
     public Long getId() {
         return id;
@@ -74,6 +80,15 @@ public class JacksonPerson {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @JsonGetter("person_items")
+    public List<String> getItems() {
+        return items;
+    }
+
+    public void setItems(List<String> items) {
+        this.items = items;
     }
 
     @Override
