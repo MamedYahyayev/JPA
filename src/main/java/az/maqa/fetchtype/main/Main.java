@@ -17,6 +17,8 @@ public class Main {
 		Doctor doctor = new Doctor("Samir", "Samirov", 25);
 
 		Laptop laptop = new Laptop("Apple", 3000);
+		laptop.setDescription("The best laptop in the world");
+		laptop.setAvailable(true);
 
 		laptop.setDoctor(doctor);
 		
