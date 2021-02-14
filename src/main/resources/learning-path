@@ -191,3 +191,10 @@ Annotations:
      If you now iterate through all cats and call getOwner() on each,
      Hibernate will, by default, execute 25 SELECT statements to retrieve the proxied owners.
      You can tune this behavior by specifying a batch-size in the mapping of Person:
+
+     orphanRemoval
+     Let's assume we have 2 entities: Post and PostComment
+     It has oneToMany relationship between Post and PostComment. If we configured CascadeType.Remove, and then we delete the post, all postComments
+     removed from db.
+     If we configure orphanRemoval = true (default is false) , and then we set null to post of postComment then orphanRemoval automatically delete
+     this postComment.
