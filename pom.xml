@@ -18,6 +18,22 @@
 					<target>9</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.hibernate.orm.tooling</groupId>
+				<artifactId>hibernate-enhance-maven-plugin</artifactId>
+				<version>5.4.10.Final</version>
+				<executions>
+					<execution>
+						<configuration>
+							<enableLazyInitialization>false</enableLazyInitialization>
+						</configuration>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -107,6 +123,14 @@
 			<artifactId>json-path</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-	</dependencies>
 
+		<!-- https://mvnrepository.com/artifact/org.hibernate.orm.tooling/hibernate-enhance-maven-plugin -->
+		<dependency>
+			<groupId>org.hibernate.orm.tooling</groupId>
+			<artifactId>hibernate-enhance-maven-plugin</artifactId>
+			<version>5.4.10.Final</version>
+		</dependency>
+
+
+	</dependencies>
 </project>
