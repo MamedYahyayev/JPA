@@ -198,3 +198,6 @@ Annotations:
      removed from db.
      If we configure orphanRemoval = true (default is false) , and then we set null to post of postComment then orphanRemoval automatically delete
      this postComment.
+
+     @LazyToOne
+     Docs: https://vladmihalcea.com/hibernate-lazytoone-annotation/
