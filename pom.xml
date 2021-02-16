@@ -37,13 +37,34 @@
         </plugins>
     </build>
 
+    <properties>
+        <!-- database versions -->
+        <h2.database.version>1.4.200</h2.database.version>
+        <mysql.connector.version>8.0.19</mysql.connector.version>
+
+        <!-- hibernate version -->
+        <hibernate.version>5.4.10.Final</hibernate.version>
+
+        <!-- jackson versions -->
+        <jackson.version>2.9.6</jackson.version>
+        <jackson.databind.version>2.9.10.7</jackson.databind.version>
+
+        <!-- test dependencies versions -->
+        <junit.version>5.4.0</junit.version>
+        <mockito.version>2.21.0</mockito.version>
+        <jsonPath.version>3.0.0</jsonPath.version>
+
+        <!-- cache tools versions -->
+        <ehcache.version>2.10.6</ehcache.version>
+    </properties>
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <version>${h2.database.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -51,7 +72,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.19</version>
+            <version>${mysql.connector.version}</version>
         </dependency>
 
 
@@ -59,13 +80,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.10.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-envers</artifactId>
-            <version>5.4.10.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
 
@@ -73,33 +94,33 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.3.7.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>5.4.2.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!--jackson annotations-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.9.6</version>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.9.6</version>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.10.7</version>
+            <version>${jackson.databind.version}</version>
         </dependency>
 
         <!--test dependencies-->
@@ -107,41 +128,41 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.4.0</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <!--mockito-->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.21.0</version>
+            <version>${mockito.version}</version>
         </dependency>
         <!--json-path-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
-            <version>3.0.0</version>
+            <version>${jsonPath.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate.orm.tooling/hibernate-enhance-maven-plugin -->
         <dependency>
             <groupId>org.hibernate.orm.tooling</groupId>
             <artifactId>hibernate-enhance-maven-plugin</artifactId>
-            <version>5.4.10.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!-- EHCache Core APIs -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-            <version>2.10.6</version>
+            <version>${ehcache.version}</version>
         </dependency>
 
         <!-- Hibernate EHCache API -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
-            <version>5.4.10.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
 
