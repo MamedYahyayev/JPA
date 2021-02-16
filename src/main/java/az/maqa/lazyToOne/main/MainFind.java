@@ -1,6 +1,6 @@
-package az.maqa.main.oneToMany;
+package az.maqa.lazyToOne.main;
 
-import az.maqa.model.oneToMany.Customer;
+import az.maqa.lazyToOne.model.CarPost;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,8 +12,7 @@ public class MainFind {
 
         EntityManager entityManager = factory.createEntityManager();
 
-        // Find
-        Customer customersProduct = entityManager.find(Customer.class, 1L);
-        System.out.println(customersProduct.getProducts());
+        CarPost carPost = entityManager.find(CarPost.class, 1L);
+
     }
 }
