@@ -29,6 +29,7 @@ Annotations:
 	-   @DiscriminatorColumn
 	-   @Fetch
 	-   @BatchSize
+	-   @NamedEntityGraph
 
 	- Inheritance Mapping
 
@@ -201,3 +202,8 @@ Annotations:
 
      @LazyToOne
      Docs: https://vladmihalcea.com/hibernate-lazytoone-annotation/
+
+
+    EntityGraph
+    Here is the docs for using Entity Graph in Jpa and Hibernate: https://www.baeldung.com/jpa-entity-graph
+    Here is the docs for using Entity Graph in Spring Data Jpa: https://www.baeldung.com/spring-data-jpa-named-entity-graphs
